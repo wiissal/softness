@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ------------------------------------------------------------------
+   SOFTNESS — design tokens
+   Every token here becomes a Tailwind class:
+   --color-cream → bg-cream / text-cream, --font-display → font-display…
+------------------------------------------------------------------- */
+@theme {
+  /* Base — warm, light neutrals */
+  --color-ivory: #fbf8f2;
+  --color-cream: #f5efe4;
+  --color-sand: #eadfcc;
+  --color-linen: #e3d6c1;
+
+  /* Secondary — natural greens & brown */
+  --color-sage: #a3ad90;
+  --color-sage-soft: #d9dccb;
+  --color-olive: #676b47;
+  --color-bark: #7b5d46;
+
+  /* Accent — used very sparingly */
+  --color-clay: #c27d5f;
+
+  /* Text */
+  --color-ink: #2b241e;
+  --color-ink-soft: #5d534a;
+
+  /* Typography */
+  --font-display: "Fraunces Variable", ui-serif, Georgia, serif;
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+
+  /* Motion — slow start, very soft landing */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply bg-ivory font-sans text-ink antialiased;
+  }
+
+  /* Fraunces has a real "SOFT" axis — rounded letterforms for a brand called Softness */
+  .font-display {
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    @apply bg-sage-soft text-ink;
+  }
+
+  /* Anchor targets shouldn't hide under the fixed navbar */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-olive);
+    outline-offset: 3px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Small uppercase labels, e.g. "FRESH · LOCAL · SEASONAL" */
+@utility label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+}
+
+/* Organic, slightly irregular rounded shape for images */
+@utility rounded-blob {
+  border-radius: 48% 52% 44% 56% / 55% 45% 55% 45%;
+}
+
+/* Subtle paper grain so large cream areas feel natural, not flat */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.38 0 0 0 0 0.3 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
