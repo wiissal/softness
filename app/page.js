@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 import SoftImage from "@/components/ui/SoftImage";
 import ImageReveal from "@/components/ui/ImageReveal";
 import Button from "@/components/ui/Button";
 import { images, dishes } from "@/lib/content";
+
 
 export default function Home() {
   const allImages = [
@@ -13,26 +15,10 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <Hero />
 
       <main className="grain bg-cream px-6 pb-32 pt-40 md:px-16">
-        <section id="home">
-          <p className="label text-olive">Fresh · Local · Seasonal</p>
-
-          <h1 className="font-display mt-6 text-6xl leading-none md:text-8xl">
-            Food made with <em className="text-olive">softness.</em>
-          </h1>
-
-          <p className="mt-6 max-w-md text-ink-soft">
-            Fresh ingredients, thoughtful cooking and simple moments made to be shared.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="#reserve">Reserve a Table</Button>
-            <Button href="#menu" variant="outline" withArrow>
-              Explore Menu
-            </Button>
-          </div>
-        </section>
+       
 
         <section id="menu" className="mt-24 grid gap-6 md:grid-cols-3">
           {allImages.map((img, i) => (
