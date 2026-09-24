@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BrandStatement from "@/components/BrandStatement";
+import SignatureDishes from "@/components/SignatureDishes";
 import SoftImage from "@/components/ui/SoftImage";
 import ImageReveal from "@/components/ui/ImageReveal";
 import Button from "@/components/ui/Button";
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <BrandStatement />
+      <SignatureDishes/>
 
       <main className="grain bg-cream px-6 pb-32 pt-40 md:px-16">
        
