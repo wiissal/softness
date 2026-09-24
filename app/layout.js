@@ -3,6 +3,8 @@ import "@fontsource-variable/fraunces/full-italic.css";
 import "@fontsource-variable/manrope";
 import "./globals.css";
 import MotionProvider from "@/components/MotionProvider";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Softness -Food made with softness.",
@@ -14,7 +16,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <MotionProvider>{children}</MotionProvider>
+      <MotionProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );
