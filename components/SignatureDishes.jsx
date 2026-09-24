@@ -37,10 +37,9 @@ const arrowClass =
 
 export default function SignatureDishes() {
   return (
-    <section id="menu" className="grain bg-cream px-5 pb-24 pt-14 sm:px-8 lg:px-12 lg:pb-32 lg:pt-16">
-      <div className="mx-auto max-w-[1440px]">
+    <section id="menu" className="grain bg-cream px-5 pb-16 pt-14 sm:px-8 lg:px-12 lg:pb-20 lg:pt-16">      <div className="mx-auto max-w-[1440px]">
         {/* ---------- Section heading ---------- */}
-        <motion.div variants={stagger(0, 0.15)} {...inView}>
+        <motion.div variants={stagger(0, 0.1)} {...inView}className="mt-16">
           <motion.p variants={fadeUp} className="label text-sage">
             Signature dishes
           </motion.p>
