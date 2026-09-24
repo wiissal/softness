@@ -25,7 +25,7 @@ const arrowClass =
 
 export default function SignatureDishes() {
   return (
-    <section id="menu" className="grain bg-cream px-5 py-24 sm:px-8 lg:px-12 lg:py-32">
+    <section id="menu" className="grain bg-cream px-5 pb-24 pt-14 sm:px-8 lg:px-12 lg:pb-32 lg:pt-16">
       <div className="mx-auto max-w-[1440px]">
         {/* ---------- Section heading ---------- */}
         <motion.div variants={stagger(0, 0.15)} {...inView}>
@@ -41,7 +41,7 @@ export default function SignatureDishes() {
         </motion.div>
 
         {/* ---------- Dishes ---------- */}
-        <ul className="mt-14 space-y-16 lg:mt-16 lg:space-y-20">
+                <ul className="mt-10 space-y-16 lg:mt-12 lg:space-y-20">
           {dishes.map((dish, i) => {
             const layout = layouts[i];
             const frameWrapper = [layout.image, frameHeight].join(" ");
