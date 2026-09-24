@@ -80,7 +80,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeIn} className="mt-8 flex flex-wrap items-center gap-3">
-            <Button href="#menu" withArrow>
+            <Button href="/menu" withArrow>
               Explore Menu
             </Button>
             <Button href="#reserve" variant="outline">

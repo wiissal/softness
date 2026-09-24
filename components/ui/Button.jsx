@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 // Full class names per variant — never build Tailwind classes from pieces
@@ -8,13 +9,14 @@ const variants = {
   ghostLight: "border border-ivory/40 text-ivory hover:bg-ivory hover:text-ink",
 };
 
-const base =
-  "group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-colors duration-500 ease-soft";
+const base = "group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-colors duration-500 ease-soft";
+
+const arrowClass = "size-4 transition-transform duration-500 ease-soft group-hover:translate-x-1";
 
 /**
  * Pill-shaped call to action.
- * Renders an <a> because every action on this landing page
- * scrolls to a section on the same page.
+ * Same-page anchors (#reserve) render a plain <a>.
+ * Real routes (/menu) render next/link for instant client-side navigation.
  */
 export default function Button({
   href,
@@ -26,15 +28,24 @@ export default function Button({
 }) {
   const classes = [base, variants[variant], className].join(" ");
 
-  return (
-    <a href={href} className={classes} {...props}>
+  const content = (
+    <>
       {children}
-      {withArrow && (
-        <ArrowRight
-          aria-hidden="true"
-          className="size-4 transition-transform duration-500 ease-soft group-hover:translate-x-1"
-        />
-      )}
-    </a>
+      {withArrow && <ArrowRight aria-hidden="true" className={arrowClass} />}
+    </>
+  );
+
+  if (href.startsWith("#")) {
+    return (
+      <a href={href} className={classes} {...props}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={classes} {...props}>
+      {content}
+    </Link>
   );
 }
