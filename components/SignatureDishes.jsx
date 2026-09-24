@@ -26,7 +26,7 @@ const layouts = [
     image: "lg:col-span-6 lg:col-start-7 lg:row-start-1",
     text: "lg:col-span-4 lg:col-start-2 lg:row-start-1",
   },
-];lets
+];
 
 const frameClass = "relative h-full w-full overflow-hidden rounded-[2rem] lg:rounded-[2.5rem]";
 const imageClass = "transition-transform duration-[900ms] ease-soft group-hover:scale-[1.06]";
