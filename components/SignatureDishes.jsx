@@ -7,8 +7,7 @@ import { dishes } from "@/lib/content";
 import { fadeUp, stagger, inView } from "@/lib/motion";
 
 // Same height for every dish — the rhythm comes from column position and width
-const frameHeight = "h-[22rem] sm:h-[26rem] lg:h-[28rem]";
-
+const frameHeight = "h-[20rem] sm:h-[24rem] lg:h-[calc(100svh-16rem)] lg:max-h-[32rem]";
 const layouts = [
   {
     image: "lg:col-span-6 lg:col-start-1 lg:row-start-1",
@@ -28,8 +27,10 @@ const layouts = [
   },
 ];
 
-const frameClass = "relative h-full w-full overflow-hidden rounded-[2rem] lg:rounded-[2.5rem]";
-const imageClass = "transition-transform duration-[900ms] ease-soft group-hover:scale-[1.06]";
+const frameClass =
+  "relative h-full w-full overflow-hidden rounded-[2rem] lg:rounded-[2.5rem]";
+const imageClass =
+  "transition-transform duration-[900ms] ease-soft group-hover:scale-[1.06]";
 const nameClass =
   "mt-4 font-display text-3xl transition-transform duration-700 ease-soft group-hover:translate-x-1 lg:text-4xl";
 const arrowClass =
@@ -37,28 +38,35 @@ const arrowClass =
 
 export default function SignatureDishes() {
   return (
-    <section id="menu" className="grain bg-cream px-5 pb-16 pt-14 sm:px-8 lg:px-12 lg:pb-20 lg:pt-16">      <div className="mx-auto max-w-[1440px]">
+    <section
+      id="menu"
+      className="grain bg-cream px-5 pb-16 pt-24 sm:px-8 lg:px-12 lg:pb-20 lg:pt-[1.25rem]"
+    >
+      <div className="mx-auto max-w-[1440px]">
+        {" "}
         {/* ---------- Section heading ---------- */}
-        <motion.div variants={stagger(0, 0.1)} {...inView}className="mt-16">
+        <motion.div variants={stagger(0, 0.15)} {...inView} className="mt-16">
           <motion.p variants={fadeUp} className="label text-sage">
             Signature dishes
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="mt-5 max-w-xl font-display text-[2.5rem] leading-[1.05] sm:text-5xl lg:text-6xl"
+            className="mt-4 max-w-xl font-display text-[2.5rem] leading-[1.05] sm:text-5xl lg:text-6xl"
           >
             A little taste of <em className="text-olive">Softness.</em>
           </motion.h2>
         </motion.div>
-
         {/* ---------- Dishes ---------- */}
-                <ul className="mt-10 space-y-16 lg:mt-12 lg:space-y-20">
+        <ul className="mt-8 space-y-16 lg:mt-10 lg:space-y-20">
           {dishes.map((dish, i) => {
             const layout = layouts[i];
             const frameWrapper = [layout.image, frameHeight].join(" ");
 
             return (
-              <li key={dish.name} className="grid items-center gap-6 lg:grid-cols-12 lg:gap-10">
+              <li
+                key={dish.name}
+                className="grid items-center gap-6 lg:grid-cols-12 lg:gap-10"
+              >
                 <article className="group contents">
                   <div className={frameWrapper}>
                     <div className={frameClass}>
@@ -71,7 +79,11 @@ export default function SignatureDishes() {
                     </div>
                   </div>
 
-                  <motion.div variants={stagger(0.1, 0.08)} {...inView} className={layout.text}>
+                  <motion.div
+                    variants={stagger(0.1, 0.08)}
+                    {...inView}
+                    className={layout.text}
+                  >
                     <motion.span variants={fadeUp} className="label text-sage">
                       0{i + 1}
                     </motion.span>
@@ -97,7 +109,6 @@ export default function SignatureDishes() {
             );
           })}
         </ul>
-
         {/* ---------- Link to the full menu ---------- */}
         <motion.div variants={stagger(0, 0.1)} {...inView} className="mt-20">
           <motion.a
@@ -111,7 +122,10 @@ export default function SignatureDishes() {
               className="size-6 transition-transform duration-700 ease-soft group-hover:-translate-y-1 group-hover:translate-x-1"
             />
           </motion.a>
-          <motion.span variants={fadeUp} className="mt-3 block max-w-xs text-sm text-ink-soft">
+          <motion.span
+            variants={fadeUp}
+            className="mt-3 block max-w-xs text-sm text-ink-soft"
+          >
             Four favourites from a menu that changes with the season.
           </motion.span>
         </motion.div>
