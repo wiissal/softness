@@ -6,7 +6,7 @@ import { fadeUp, stagger, inView } from "@/lib/motion";
 
 export default function BrandStatement() {
   return (
-    <section id="story" className="flex min-h-svh flex-col justify-center bg-ivory py-24 lg:py-28">
+       <section id="story" className="flex min-h-svh flex-col justify-center bg-ivory py-20 lg:py-24">
       <motion.div
         variants={stagger(0, 0.15)}
         {...inView}
@@ -29,7 +29,7 @@ export default function BrandStatement() {
         </motion.p>
       </motion.div>
 
-      <div className="mt-14 lg:mt-20">
+      <div className="mt-10 lg:mt-14">
         <DishMarquee />
       </div>
     </section>

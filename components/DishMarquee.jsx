@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import SoftImage from "@/components/ui/SoftImage";
 import { galleryImages } from "@/lib/menu";
 
-const cardClass = "relative h-[14rem] w-[11rem] shrink-0 overflow-hidden rounded-[1.25rem] bg-sand sm:h-[17rem] sm:w-[13rem] lg:h-[20rem] lg:w-[15rem]";
+const cardClass = "relative aspect-[3/4] h-[24svh] shrink-0 overflow-hidden rounded-[1.25rem] bg-sand sm:h-[27svh] lg:h-[30svh] lg:max-h-[16rem]";
 const fadeLeft = "pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-ivory to-transparent lg:w-28";
 const fadeRight = "pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-ivory to-transparent lg:w-28";
 
