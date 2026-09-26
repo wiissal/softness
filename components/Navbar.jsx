@@ -1,5 +1,5 @@
 "use client";
-
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -31,7 +31,8 @@ export default function Navbar() {
 
   const headerClass = [headerBase, scrolled ? headerScrolled : headerTop].join(" ");
   const logoClass = [logoBase, scrolled ? "text-lg" : "text-xl md:text-2xl"].join(" ");
-
+  const pathname = usePathname();
+  const toHome = (hash) => (pathname === "/" ? hash : "/" + hash);
   return (
     <>
       <motion.header
@@ -44,14 +45,14 @@ export default function Navbar() {
           aria-label="Main"
           className="mx-auto flex max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12"
         >
-          <a href="#home" className={logoClass}>
+          <a href={toHome("#home")} className={logoClass}>
             SOFTNESS
           </a>
 
           <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="group relative text-sm text-ink-soft hover:text-ink">
+                <a href={toHome(link.href)}  className="group relative text-sm text-ink-soft hover:text-ink">
                   {link.label}
                   <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-ink transition-transform duration-500 ease-soft group-hover:scale-x-100" />
                 </a>
@@ -59,7 +60,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <Button href="#reserve" className="hidden md:inline-flex">
+          <Button href={toHome("#reserve")} className="hidden md:inline-flex">
             Reserve a Table
           </Button>
 
@@ -88,7 +89,8 @@ function MobileMenu({ onClose }) {
     hidden: { y: "110%" },
     show: { y: 0, transition: { duration: 0.9, ease } },
   };
-
+  const pathname = usePathname();
+  const toHome = (hash) => (pathname === "/" ? hash : "/" + hash);
   return (
     <motion.div
       role="dialog"
@@ -116,7 +118,7 @@ function MobileMenu({ onClose }) {
         {links.map((link, i) => (
           <li key={link.href} className="overflow-hidden">
             <motion.a
-              href={link.href}
+              href={toHome(link.href)}
               onClick={onClose}
               className="flex items-baseline gap-4 py-1 font-display text-6xl"
               variants={linkVariants}

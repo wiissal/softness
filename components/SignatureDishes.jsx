@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import SoftImage from "@/components/ui/SoftImage";
 import { dishes } from "@/lib/content";
 import { fadeUp, stagger, inView } from "@/lib/motion";
+import Link from "next/link";
 
 // Same height for every dish — the rhythm comes from column position and width
 const frameHeight = "h-[20rem] sm:h-[24rem] lg:h-[calc(100svh-16rem)] lg:max-h-[32rem]";
@@ -110,25 +111,15 @@ export default function SignatureDishes() {
           })}
         </ul>
         {/* ---------- Link to the full menu ---------- */}
-        <motion.div variants={stagger(0, 0.1)} {...inView} className="mt-20">
-          <motion.a
-            variants={fadeUp}
-            href="#reserve"
-            className="group inline-flex items-center gap-3 font-display text-2xl lg:text-3xl"
-          >
-            Explore the Menu
-            <ArrowUpRight
-              aria-hidden="true"
-              className="size-6 transition-transform duration-700 ease-soft group-hover:-translate-y-1 group-hover:translate-x-1"
-            />
-          </motion.a>
-          <motion.span
-            variants={fadeUp}
-            className="mt-3 block max-w-xs text-sm text-ink-soft"
-          >
-            Four favourites from a menu that changes with the season.
-          </motion.span>
-        </motion.div>
+                  <motion.div variants={fadeUp}>
+            <Link href="/menu" className="group inline-flex items-center gap-3 font-display text-2xl lg:text-3xl">
+              Explore the Menu
+              <ArrowUpRight
+                aria-hidden="true"
+                className="size-6 transition-transform duration-700 ease-soft group-hover:-translate-y-1 group-hover:translate-x-1"
+              />
+            </Link>
+          </motion.div>
       </div>
     </section>
   );
