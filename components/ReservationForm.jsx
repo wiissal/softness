@@ -9,7 +9,7 @@ import { ease } from "@/lib/motion";
 const fieldClass = "w-full border-b border-ink/20 bg-transparent py-3 text-ink outline-none transition-colors focus:border-olive";
 const labelClass = "label block text-ink-soft";
 const errorClass = "mt-2 text-sm text-clay";
-const submitClass = "mt-10 w-full rounded-full bg-ink px-8 py-4 text-sm font-semibold text-ivory transition-colors duration-500 ease-soft hover:bg-olive sm:w-auto";
+const submitClass = "mt-8 w-full rounded-full bg-ink px-8 py-4 text-sm font-semibold text-ivory transition-colors duration-500 ease-soft hover:bg-olive sm:w-auto";
 
 const emptyForm = {
   name: "",
@@ -84,8 +84,8 @@ export default function ReservationForm() {
   }
 
   return (
-    <form noValidate onSubmit={handleSubmit} className="mt-12">
-      <div className="grid gap-8 sm:grid-cols-2">
+    <form noValidate onSubmit={handleSubmit} className="mt-8">
+      <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
             Name

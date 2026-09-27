@@ -16,8 +16,7 @@ const linkClass = "transition-colors hover:text-olive";
 export default function ReservationPage() {
   return (
     <main className="grain bg-cream">
-      <div className="mx-auto max-w-[1440px] px-5 pb-24 pt-32 sm:px-8 lg:px-12 lg:pb-32 lg:pt-36">
-        {/* ---------- Header ---------- */}
+      <div className="mx-auto max-w-[1440px] px-5 pb-20 pt-28 sm:px-8 lg:px-12 lg:pb-24 lg:pt-28">        {/* ---------- Header ---------- */}
         <header className="max-w-2xl">
           <p className="label text-sage">Reservations</p>
 
@@ -31,15 +30,15 @@ export default function ReservationPage() {
           </p>
         </header>
 
-        <div className="mt-4 grid gap-16 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-2 grid gap-12 lg:grid-cols-12 lg:gap-12">
           {/* ---------- Form ---------- */}
           <div className="lg:col-span-7">
             <ReservationForm />
           </div>
 
           {/* ---------- Practical details ---------- */}
-          <aside className="space-y-10 lg:col-span-4 lg:col-start-9 lg:pt-12">
-            <div className="relative h-56 overflow-hidden rounded-[1.5rem] bg-sand">
+          <aside className="space-y-10 lg:col-span-4 lg:col-start-9 lg:pt-4">
+            <div className="relative h-44 overflow-hidden rounded-[1.5rem] bg-sand">
               <SoftImage
                 src={images.reservation}
                 alt="A table set for guests at Softness"
