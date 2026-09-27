@@ -83,9 +83,7 @@ export default function Hero() {
             <Button href="/menu" withArrow>
               Explore Menu
             </Button>
-            <Button href="/reservation" variant="outline">
-              Reserve a Table
-            </Button>
+            
           </motion.div>
 
           <motion.div
