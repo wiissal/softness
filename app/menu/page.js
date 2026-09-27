@@ -82,7 +82,7 @@ export default function MenuPage() {
         </h2>
 
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button href="/#reservation">Reserve a Table</Button>
+          <Button href="/reservation">Reserve a Table</Button>
           <Button href="/" variant="outline">
             Back to Home
           </Button>
