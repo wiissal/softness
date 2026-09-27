@@ -76,7 +76,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <Button href={toHome("#reservation")} className="hidden md:inline-flex">
+          <Button href={toHome("/reservation")} className="hidden md:inline-flex">
             Reserve a Table
           </Button>
 
@@ -100,7 +100,7 @@ export default function Navbar() {
 }
 
 function MobileMenu({ onClose }) {
-  const links = [...navLinks, { label: "Reserve a Table", href: "#reservation" }];
+  const links = [...navLinks, { label: "Reserve a Table", href: "/reservation" }];
 
   const menuVariants = {
     show: { transition: { delayChildren: 0.3, staggerChildren: 0.08 } },
