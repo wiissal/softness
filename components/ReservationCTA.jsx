@@ -34,7 +34,7 @@ export default function ReservationCTA() {
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-9 flex flex-wrap justify-center gap-3">
-          <Button href="#reserve">Reserve a Table</Button>
+          <Button href="/reservation">Reserve a Table</Button>
           <Button href="#menu" variant="outline" withArrow>
             Explore Menu
           </Button>

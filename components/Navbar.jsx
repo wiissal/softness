@@ -1,17 +1,25 @@
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { navLinks } from "@/lib/content";
 import { ease } from "@/lib/motion";
 
-const headerBase = "fixed inset-x-0 top-0 z-50 transition-all duration-700 ease-soft";
-const headerScrolled = "border-b border-ink/5 bg-cream/75 py-3 backdrop-blur-xl";
+const headerBase =
+  "fixed inset-x-0 top-0 z-50 transition-all duration-700 ease-soft";
+const headerScrolled =
+  "border-b border-ink/5 bg-cream/75 py-3 backdrop-blur-xl";
 const headerTop = "bg-transparent py-5 md:py-7";
 
-const logoBase = "font-display font-medium tracking-[0.18em] transition-all duration-700 ease-soft";
+const logoBase =
+  "font-display font-medium tracking-[0.18em] transition-all duration-700 ease-soft";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,8 +37,13 @@ export default function Navbar() {
     };
   }, [open]);
 
-  const headerClass = [headerBase, scrolled ? headerScrolled : headerTop].join(" ");
-  const logoClass = [logoBase, scrolled ? "text-lg" : "text-xl md:text-2xl"].join(" ");
+  const headerClass = [headerBase, scrolled ? headerScrolled : headerTop].join(
+    " ",
+  );
+  const logoClass = [
+    logoBase,
+    scrolled ? "text-lg" : "text-xl md:text-2xl",
+  ].join(" ");
   const pathname = usePathname();
   const toHome = (hash) => (pathname === "/" ? hash : "/" + hash);
   return (
@@ -52,7 +65,10 @@ export default function Navbar() {
           <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a href={toHome(link.href)}  className="group relative text-sm text-ink-soft hover:text-ink">
+                <a
+                  href={toHome(link.href)}
+                  className="group relative text-sm text-ink-soft hover:text-ink"
+                >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-ink transition-transform duration-500 ease-soft group-hover:scale-x-100" />
                 </a>
@@ -60,7 +76,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <Button href={toHome("#reserve")} className="hidden md:inline-flex">
+          <Button href={toHome("/reservation")} className="hidden md:inline-flex">
             Reserve a Table
           </Button>
 
@@ -76,15 +92,19 @@ export default function Navbar() {
         </nav>
       </motion.header>
 
-      <AnimatePresence>{open && <MobileMenu onClose={() => setOpen(false)} />}</AnimatePresence>
+      <AnimatePresence>
+        {open && <MobileMenu onClose={() => setOpen(false)} />}
+      </AnimatePresence>
     </>
   );
 }
 
 function MobileMenu({ onClose }) {
-  const links = [...navLinks, { label: "Reserve", href: "#reserve" }];
+  const links = [...navLinks, { label: "Reserve a Table", href: "/reservation" }];
 
-  const menuVariants = { show: { transition: { delayChildren: 0.3, staggerChildren: 0.08 } } };
+  const menuVariants = {
+    show: { transition: { delayChildren: 0.3, staggerChildren: 0.08 } },
+  };
   const linkVariants = {
     hidden: { y: "110%" },
     show: { y: 0, transition: { duration: 0.9, ease } },
@@ -103,7 +123,9 @@ function MobileMenu({ onClose }) {
       transition={{ duration: 0.9, ease }}
     >
       <div className="flex items-center justify-between">
-        <span className="font-display text-xl font-medium tracking-[0.18em]">SOFTNESS</span>
+        <span className="font-display text-xl font-medium tracking-[0.18em]">
+          SOFTNESS
+        </span>
         <button
           type="button"
           onClick={onClose}
@@ -114,17 +136,26 @@ function MobileMenu({ onClose }) {
         </button>
       </div>
 
-      <motion.ul className="mt-auto space-y-2" initial="hidden" animate="show" variants={menuVariants}>
+      <motion.ul
+        className="mt-auto space-y-2"
+        initial="hidden"
+        animate="show"
+        variants={menuVariants}
+      >
         {links.map((link, i) => (
           <li key={link.href} className="overflow-hidden">
             <motion.a
-              href={toHome(link.href)}
+              href={link.href.startsWith("/") ? link.href : toHome(link.href)}
               onClick={onClose}
               className="flex items-baseline gap-4 py-1 font-display text-6xl"
               variants={linkVariants}
             >
               <span className="label text-ink-soft">0{i + 1}</span>
-              {link.label === "Reserve" ? <em className="text-olive">{link.label}</em> : link.label}
+              {link.label === "Reserve" ? (
+                <em className="text-olive">{link.label}</em>
+              ) : (
+                link.label
+              )}
             </motion.a>
           </li>
         ))}
