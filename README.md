@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Softness
 
-## Getting Started
+A restaurant website built as a frontend portfolio project — editorial, warm, and designed around one action: reserving a table.
 
-First, run the development server:
+**Food made with softness.**
+
+![Softness](./public/images/preview.jpg)
+
+## Live demo
+
+[softness.vercel.app](coming soon)
+
+## Tech stack
+
+- **Next.js 16** (App Router)
+- **React 19**
+- **JavaScript** : no TypeScript, by design
+- **Tailwind CSS v4** :  design tokens defined in `@theme`
+- **Framer Motion** :  scroll-linked animation
+- **Lucide React** :  icons
+- **Fontsource** :  self-hosted Fraunces + Manrope
+
+## Pages
+
+- **`/`** : landing page: hero, brand story with an infinite dish marquee, signature dishes, atmosphere, closing call to action
+- **`/menu`** : full menu by course, with sticky course navigation that follows your scroll
+- **`/reservation`** : booking form with validation and a confirmation state, alongside hours and contact details
+
+## Features
+
+- **Design system first** : colors, typography, easing and custom utilities defined once as Tailwind v4 tokens
+- **Editorial layouts** : asymmetrical 12-column compositions rather than card grids
+- **Scroll-linked motion** : parallax, curtain reveals, staggered text, all on one shared easing curve
+- **Viewport-sized sections** using `svh` units, so full-screen sections fit any device
+- **Form handling** : controlled inputs in a single state object, a pure validation function, per-field errors that clear as you type
+- **Navigation state** : the navbar reflects the current page, and the current section while scrolling the home page (IntersectionObserver)
+- **Mobile designed separately**, not scaled down
+- **Accessible** : semantic HTML, focus-visible styles, `aria` attributes, and full `prefers-reduced-motion` support
+
+## Project structure
+app/
+layout.js # HTML shell, fonts, navbar + footer
+page.js # composes the landing page sections
+globals.css # design tokens & base styles
+menu/page.js
+reservation/page.js
+components/
+Navbar.jsx # scroll state, active link, mobile menu
+Hero.jsx
+BrandStatement.jsx
+DishMarquee.jsx # infinite scrolling strip
+SignatureDishes.jsx
+Atmosphere.jsx
+ReservationCTA.jsx
+ReservationForm.jsx # validation + confirmation state
+CourseNav.jsx # sticky menu navigation
+Footer.jsx
+MotionProvider.jsx # prefers-reduced-motion policy
+ui/
+Button.jsx # pill CTA, next/link for routes
+SoftImage.jsx # next/image with a fallback
+ImageReveal.jsx # curtain reveal on scroll
+lib/
+content.js # landing page copy and image paths
+menu.js # the full menu, grouped by course
+reservation.js # hours, contact, booking options
+
+
+## Running locally
 
 ```bash
+git clone https://github.com/wiissal/softness.git
+cd softness
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Notes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Frontend only, backend, authentication or database are coming soon. The reservation form validates input and shows a confirmation, but doesn't send anything.
 
-## Learn More
+All content lives in `lib/`, so copy, dishes and photography can be changed without touching components.
 
-To learn more about Next.js, take a look at the following resources:
+Photography from [Unsplash](https://unsplash.com).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by [Wissal Ouboujemaa](https://github.com/wiissal) : Agadir, Morocco.
