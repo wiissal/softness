@@ -26,8 +26,8 @@ const fadeIn = {
 };
 
 // Height is driven by the viewport so the hero always fits one screen
-const frameHeight = "h-[46svh] sm:h-[54svh] lg:h-[calc(100svh-11rem)] lg:max-h-[44rem]";
-
+const frameHeight =
+  "h-[46svh] sm:h-[54svh] lg:h-[calc(100svh-9rem)] lg:max-h-[48rem]";
 export default function Hero() {
   const sectionRef = useRef(null);
 
@@ -54,7 +54,12 @@ export default function Hero() {
 
       <div className="relative mx-auto grid w-full max-w-[1440px] items-center gap-8 lg:grid-cols-12">
         {/* ---------- Text column ---------- */}
-        <motion.div variants={container} initial="hidden" animate="show" className="lg:col-span-5">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="lg:col-span-5"
+        >
           <motion.p variants={fadeIn} className="label text-olive">
             Fresh · Local · Seasonal
           </motion.p>
@@ -75,15 +80,21 @@ export default function Hero() {
             ))}
           </h1>
 
-          <motion.p variants={fadeIn} className="mt-6 max-w-sm leading-relaxed text-ink-soft">
-            Fresh ingredients, thoughtful cooking and simple moments made to be shared.
+          <motion.p
+            variants={fadeIn}
+            className="mt-6 max-w-sm leading-relaxed text-ink-soft"
+          >
+            Fresh ingredients, thoughtful cooking and simple moments made to be
+            shared.
           </motion.p>
 
-          <motion.div variants={fadeIn} className="mt-8 flex flex-wrap items-center gap-3">
+          <motion.div
+            variants={fadeIn}
+            className="mt-8 flex flex-wrap items-center gap-3"
+          >
             <Button href="/menu" withArrow>
               Explore Menu
             </Button>
-            
           </motion.div>
 
           <motion.div
@@ -96,12 +107,18 @@ export default function Hero() {
         </motion.div>
 
         {/* ---------- Image column ---------- */}
-        <motion.div style={{ y: imageY }} className="lg:col-span-6 lg:col-start-7">
+        <motion.div
+          style={{ y: imageY }}
+          className="lg:col-span-6 lg:col-start-7 lg:mr-[calc(-3rem-max(0px,(100vw-1440px)/2))]"
+        >
           <motion.div
             initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
             animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
             transition={{ duration: 1.6, ease, delay: 0.15 }}
-            className={"relative w-full overflow-hidden rounded-[2rem] lg:rounded-[3rem] " + frameHeight}
+            className={
+              "relative w-full overflow-hidden rounded-[2rem] lg:rounded-[3rem] " +
+              frameHeight
+            }
           >
             <motion.div
               initial={{ scale: 1.2 }}
