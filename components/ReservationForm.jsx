@@ -78,9 +78,14 @@ export default function ReservationForm() {
 
     setBooking(values);
   }
+    function handleReset() {
+    setValues(emptyForm);
+    setErrors({});
+    setBooking(null);
+  }
 
   if (booking) {
-    return <Confirmation booking={booking} onReset={() => setBooking(null)} />;
+    return <Confirmation booking={booking} onReset={handleReset} />;
   }
 
   return (
