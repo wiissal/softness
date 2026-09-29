@@ -4,9 +4,9 @@ import { openingHours, contact, guidelines } from "@/lib/reservation";
 import { images } from "@/lib/content";
 
 export const metadata = {
-  title: "Reserve a table — Softness",
+  title: "Reserve a table .. Softness",
   description:
-    "Book a table at Softness in Agadir — lunch and dinner, every day but Sunday evening.",
+    "Book a table at Softness in Agadir : lunch and dinner, every day but Sunday evening.",
 };
 
 const asideBlock = "border-t border-ink/10 pt-6";
@@ -40,7 +40,7 @@ export default function ReservationPage() {
         <aside className="space-y-8 lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1">
           <div className="relative h-44 overflow-hidden rounded-[1.5rem] bg-sand">
             <SoftImage
-              src={images.reservation}
+              src={images.table}
               alt="A table set for guests at Softness"
               sizes="(min-width: 1024px) 30vw, 100vw"
             />

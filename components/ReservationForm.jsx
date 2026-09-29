@@ -120,7 +120,7 @@ export default function ReservationForm() {
 
         <div className="sm:col-span-2">
           <label htmlFor="email" className={labelClass}>
-            Email — optional
+            Email - optional
           </label>
           <input
             id="email"
@@ -211,7 +211,7 @@ export default function ReservationForm() {
 
         <div className="sm:col-span-2">
           <label htmlFor="notes" className={labelClass}>
-            Anything we should know — optional
+            Anything we should know - optional
           </label>
           <textarea
             id="notes"
@@ -230,7 +230,7 @@ export default function ReservationForm() {
       </button>
 
       <p className="mt-4 text-sm text-ink-soft">
-        This is a portfolio demo — no booking is actually sent.
+        No booking is actually sent.
       </p>
     </form>
   );
