@@ -40,7 +40,7 @@ export default function ReservationPage() {
         <aside className="space-y-8 lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1">
           <div className="relative h-44 overflow-hidden rounded-[1.5rem] bg-sand">
             <SoftImage
-              src={images.table}
+              src="/images/table.jpg"
               alt="A table set for guests at Softness"
               sizes="(min-width: 1024px) 30vw, 100vw"
             />
