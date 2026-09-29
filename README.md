@@ -1,6 +1,6 @@
 # Softness
 
-A restaurant website built as a frontend portfolio project — editorial, warm, and designed around one action: reserving a table.
+A restaurant website built as a frontend portfolio project editorial, warm, and designed around one action: reserving a table.
 
 **Food made with softness.**
 
@@ -38,32 +38,44 @@ A restaurant website built as a frontend portfolio project — editorial, warm, 
 - **Accessible** : semantic HTML, focus-visible styles, `aria` attributes, and full `prefers-reduced-motion` support
 
 ## Project structure
-app/
-layout.js # HTML shell, fonts, navbar + footer
-page.js # composes the landing page sections
-globals.css # design tokens & base styles
-menu/page.js
-reservation/page.js
-components/
-Navbar.jsx # scroll state, active link, mobile menu
-Hero.jsx
-BrandStatement.jsx
-DishMarquee.jsx # infinite scrolling strip
-SignatureDishes.jsx
-Atmosphere.jsx
-ReservationCTA.jsx
-ReservationForm.jsx # validation + confirmation state
-CourseNav.jsx # sticky menu navigation
-Footer.jsx
-MotionProvider.jsx # prefers-reduced-motion policy
-ui/
-Button.jsx # pill CTA, next/link for routes
-SoftImage.jsx # next/image with a fallback
-ImageReveal.jsx # curtain reveal on scroll
-lib/
-content.js # landing page copy and image paths
-menu.js # the full menu, grouped by course
-reservation.js # hours, contact, booking options
+
+```
+softness/
+├── app/
+│   ├── layout.js             → HTML shell, fonts, navbar + footer
+│   ├── page.js               → composes the landing page sections
+│   ├── globals.css           → design tokens & base styles
+│   ├── menu/
+│   │   └── page.js           → full menu, by course
+│   └── reservation/
+│       └── page.js           → booking form + practical details
+│
+├── components/
+│   ├── Navbar.jsx            → scroll state, active link, mobile menu
+│   ├── Hero.jsx
+│   ├── BrandStatement.jsx
+│   ├── DishMarquee.jsx       → infinite scrolling dish strip
+│   ├── SignatureDishes.jsx
+│   ├── Atmosphere.jsx
+│   ├── ReservationCTA.jsx
+│   ├── ReservationForm.jsx   → validation + confirmation state
+│   ├── CourseNav.jsx         → sticky course navigation
+│   ├── Footer.jsx
+│   ├── MotionProvider.jsx    → prefers-reduced-motion policy
+│   └── ui/
+│       ├── Button.jsx        → pill CTA, next/link for routes
+│       ├── SoftImage.jsx     → next/image with a fallback
+│       └── ImageReveal.jsx   → curtain reveal on scroll
+│
+├── lib/
+│   ├── content.js            → landing page copy and image paths
+│   ├── menu.js               → the full menu, grouped by course
+│   ├── motion.js             → shared easing and variants
+│   └── reservation.js        → hours, contact, booking options
+│
+└── public/
+    └── images/               → photography
+```
 
 
 ## Running locally
