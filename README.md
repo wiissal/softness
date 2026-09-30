@@ -8,7 +8,7 @@ A restaurant website built as a frontend portfolio project editorial, warm, and 
 
 ## Live demo
 
-[softness.vercel.app](coming soon)
+[softness-restaurant.vercel.app](https://softness-restaurant.vercel.app)
 
 ## Tech stack
 
